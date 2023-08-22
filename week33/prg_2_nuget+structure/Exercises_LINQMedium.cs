@@ -6,6 +6,7 @@ Learing objective: Being able to write medium difficulty algorithms.
 Additional help: I put guided solutions in the ./Solutions directory.
 */
 
+using Castle.Components.DictionaryAdapter.Xml;
 using NUnit.Framework;
 
 namespace gettingstarted;
@@ -15,7 +16,12 @@ public class MediumLinqExercises : IMediumLinqExercises
 {
     public int CountVowels(string text)
     {
-        throw new NotImplementedException();
+        IEnumerable<char> vowels =
+            from letter in text.ToCharArray()
+            where "aeiou".Contains(letter)
+            select letter;
+
+        return vowels.Count();
     }
 
     public List<int> GetNumbersInRange(List<int> numbers, int start, int end)

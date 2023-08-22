@@ -15,61 +15,84 @@ public class EasyLinqExercises : IEasyLinqExercises
     // Exercise 1: Return all odd numbers from the given list.
     public List<int> GetAllOddNumbers(List<int> numbers)
     {
-        throw new NotImplementedException();
+        IEnumerable<int> oddNumbers =
+            from num in numbers
+            where (num % 2) != 0
+            select num;
+
+        return oddNumbers.ToList();
     }
 
     // Exercise 2: Return the average of all numbers from the given list.
     public double GetAverage(List<int> numbers)
     {
-        throw new NotImplementedException();
+        IEnumerable<int> result =
+            from num in numbers
+            select num;
+
+        return result.Average();
+
+        //return numbers.Average();
     }
 
     // Exercise 3: Return the first 3 numbers from the given list.
     public List<int> GetFirstThreeNumbers(List<int> numbers)
     {
-        throw new NotImplementedException();
+        return numbers.GetRange(0, 3);
     }
 
     // Exercise 4: Return the last number from the given list.
     public int GetLastNumber(List<int> numbers)
     {
-        throw new NotImplementedException();
+        return numbers.Last();
     }
 
     // Exercise 5: Return the string "Hello, [name]!" for each name in the given list.
     public List<string> GetHelloMessages(List<string> names)
     {
-        throw new NotImplementedException();
+        IEnumerable<string> result =
+            from name in names
+            select "Hello, " + name;
+
+        return result.ToList();
     }
 
     // Exercise 6: Return the number of elements in the given list.
     public int CountElements(List<int> numbers)
     {
-        throw new NotImplementedException();
+        return numbers.Count;
     }
 
     // Exercise 7: Return a list of numbers multiplied by 2.
     public List<int> GetDoubledNumbers(List<int> numbers)
     {
-        throw new NotImplementedException();
+        IEnumerable<int> result =
+            from num in numbers
+            select num * 2;
+
+        return result.ToList();
     }
 
     // Exercise 8: Return a list of strings converted to uppercase.
     public List<string> ConvertToUpper(List<string> words)
     {
-        throw new NotImplementedException();
+        IEnumerable<string> result =
+            from word in words
+            select word.ToUpper();
+
+        return result.ToList();
     }
 
     // Exercise 9: Return true if the given number exists in the list, false otherwise.
     public bool IsNumberInList(List<int> numbers, int number)
     {
-        throw new NotImplementedException();
+        return numbers.Contains(number);
     }
 
     // Exercise 10: Return a list of distinct numbers from the given list.
     public List<int> GetDistinctNumbers(List<int> numbers)
     {
-        throw new NotImplementedException();
+        return numbers.Distinct().ToList();
     }
 }
 

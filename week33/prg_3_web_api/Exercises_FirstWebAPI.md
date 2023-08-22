@@ -1,4 +1,3 @@
-
 ### Guided solutions can be found here: https://github.com/uldahlalex/dotnetwebapi check Controllers/SolutionsController.cs
 
 ### Intro: Read this to know what it's about.
